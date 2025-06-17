@@ -21,6 +21,7 @@
             --bg-light: #f8fafc;
             --white: #ffffff;
             --gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
+            --form-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
 
         body {
@@ -276,6 +277,229 @@
             line-height: 1.6;
         }
 
+        /* Feedback Form Section   */
+        .feedback-form {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feedback-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1.5" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+            animation: slidePattern 20s linear infinite;
+        }
+
+        .feedback-form-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .feedback-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--white);
+        }
+
+        .feedback-header h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .feedback-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+
+        .feedback-benefits {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .feedback-benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .feedback-benefit-item:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .feedback-benefit-item i {
+            color: #FFD700;
+        }
+
+        .feedback-card {
+            background: var(--white);
+            border-radius: 25px;
+            padding: 3rem;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+        }
+
+        .feedback-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient);
+        }
+
+        .feedback-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .feedback-title h3 {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .feedback-title p {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        .feedback-cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            width: 100%;
+            background: var(--gradient);
+            color: var(--white);
+            padding: 1.2rem 2rem;
+            border: none;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feedback-cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .feedback-cta-button:hover::before {
+            left: 100%;
+        }
+
+        .feedback-cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+        }
+
+        .feedback-cta-button i {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .feedback-cta-button:hover i {
+            transform: translateX(5px);
+        }
+
+        .feedback-security {
+            margin-top: 2rem;
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(99, 102, 241, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .feedback-security i {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feedback-security p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .floating-element {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: floatRandom 8s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            width: 60px;
+            height: 60px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            width: 40px;
+            height: 40px;
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .floating-element:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            bottom: 30%;
+            left: 5%;
+            animation-delay: 4s;
+        }
+
         /* Download Section */
         .download {
             padding: 6rem 2rem;
@@ -376,6 +600,35 @@
             50% { transform: translateY(-20px); }
         }
 
+        @keyframes slidePattern {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(100px); }
+        }
+
+        @keyframes floatRandom {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.5;
+            }
+            25% { 
+                transform: translateY(-20px) rotate(90deg);
+                opacity: 0.8;
+            }
+            50% { 
+                transform: translateY(-10px) rotate(180deg);
+                opacity: 0.3;
+            }
+            75% { 
+                transform: translateY(-30px) rotate(270deg);
+                opacity: 0.6;
+            }
+        }
+
+        @keyframes ripple {
+            0% { transform: scale(0); opacity: 0.6; }
+            100% { transform: scale(2); opacity: 0; }
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
@@ -401,6 +654,20 @@
                 grid-template-columns: 1fr;
             }
 
+            .feedback-header h2 {
+                font-size: 2.2rem;
+            }
+
+            .feedback-benefits {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .feedback-card {
+                padding: 2rem;
+                margin: 0 1rem;
+            }
+
             .download-buttons {
                 flex-direction: column;
                 align-items: center;
@@ -415,6 +682,7 @@
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#funciones">Funciones</a></li>
+                <li><a href="#feedback">Feedback</a></li>
                 <li><a href="#descarga">Descarga</a></li>
             </ul>
         </nav>
@@ -481,13 +749,62 @@
             <h2>Descarga MoodMap</h2>
             <p>Comienza tu viaje hacia un mejor bienestar emocional. Descarga la aplicación gratuita y lleva tu terapia de bolsillo contigo a donde vayas.</p>
             <div class="download-buttons">
-                <a href="https://drive.google.com/file/d/11F-cgRkTG-H6B8lyNacgNMlmipLxWCzx/view?usp=drive_link" class="download-btn" download>
+                <a href="https://drive.google.com/file/d/1oSkxkDr3eCNIYr0__lm5Wk1b2KRpCXxV/view?usp=drive_link" class="download-btn" target="_blank">
                     <i class="fab fa-android"></i>
                     <div class="btn-text">
                         <small>Descargar para</small>
                         <span>Android</span>
                     </div>
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Feedback -->
+    <section class="feedback-form" id="feedback">
+        <div class="floating-elements">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
+        
+        <div class="feedback-form-container">
+            <div class="feedback-header">
+                <h2>Ayúdanos a Mejorar</h2>
+                <p>Tu opinión es fundamental para nosotros. Comparte tu experiencia con MoodMap y ayúdanos a crear una herramienta aún más efectiva para el bienestar emocional de todos.</p>
+                
+                <div class="feedback-benefits">
+                    <div class="feedback-benefit-item">
+                        <i class="fas fa-comments"></i>
+                        <span>Tu Voz Importa</span>
+                    </div>
+                    <div class="feedback-benefit-item">
+                        <i class="fas fa-tools"></i>
+                        <span>Mejoras Continuas</span>
+                    </div>
+                    <div class="feedback-benefit-item">
+                        <i class="fas fa-heart"></i>
+                        <span>Impacto Real</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feedback-card">
+                <div class="feedback-title">
+                    <h3>¡Comparte tu Experiencia!</h3>
+                    <p>¿Qué te ha parecido MoodMap? ¿Qué funciones te gustaría ver? Tu feedback nos ayuda a evolucionar</p>
+                </div>
+
+                <a href="https://forms.gle/DvammZYf53ZjNkP6A" class="feedback-cta-button" target="_blank">
+                    <i class="fas fa-comment-dots"></i>
+                    <span>Dejar Feedback Ahora</span>
+                    <i class="fas fa-external-link-alt"></i>
+                </a>
+
+                <div class="feedback-security">
+                    <i class="fas fa-users"></i>
+                    <p>🌟 Únete a miles de usuarios que ya están ayudando a mejorar MoodMap con sus valiosas opiniones</p>
+                </div>
             </div>
         </div>
     </section>
@@ -543,12 +860,34 @@
             });
         }, observerOptions);
 
+        // Observe feature cards
         document.querySelectorAll('.feature-card').forEach(card => {
             card.style.opacity = '0';
             card.style.transform = 'translateY(30px)';
             card.style.transition = 'all 0.6s ease';
             observer.observe(card);
         });
-    </script>
-</body>
-</html>
+
+        // Observe feedback section
+        const feedbackCard = document.querySelector('.feedback-card');
+        if (feedbackCard) {
+            feedbackCard.style.opacity = '0';
+            feedbackCard.style.transform = 'translateY(50px) scale(0.95)';
+            feedbackCard.style.transition = 'all 0.8s ease';
+            observer.observe(feedbackCard);
+        }
+
+// Feedback button click animation
+document.querySelector('.feedback-cta-button').addEventListener('click', function(e) {
+    // Create ripple effect
+    const ripple = document.createElement('span');
+    ripple.style.position = 'absolute';
+    ripple.style.borderRadius = '50%';
+    ripple.style.background = 'rgba(255, 255, 255, 0.6)';
+    ripple.style.transform = 'scale(0)';
+    ripple.style.animation = 'ripple 0.6s linear';
+    ripple.style.left = '50%';
+    ripple.style.top = '50%';
+    ripple.style.width = '100px';
+    ripple.style.height = '100px';
+});
